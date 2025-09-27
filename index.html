@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Creative Canvas</h1>
+                    <span class="tagline">Where Art Meets Words</span>
+                </div>
+                <nav class="nav-buttons">
+                    <button class="btn btn-secondary" id="homeBtn">Home</button>
+                    <button class="btn btn-primary" id="createPostBtn">Create Post</button>
+                    <button class="btn btn-outline" id="aboutBtn">About</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero" id="heroSection">
+                <div class="hero-content">
+                    <h2>Share Your Creative Journey</h2>
+                    <p>Express your artistic vision, connect with fellow creators, and inspire the world with your unique perspective.</p>
+                    <button class="btn btn-hero" id="startBloggingBtn">Start Blogging</button>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-elements">
+                        <div class="element element-1"></div>
+                        <div class="element element-2"></div>
+                        <div class="element element-3"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- About Section -->
+            <section class="about-section hidden" id="aboutSection">
+                <div class="about-container">
+                    <h2>About Creative Canvas</h2>
+                    <p>
+                        Welcome to Creative Canvas! is a platform designed for artists to share their creative journey,
+                        showcase their work, and connect with fellow creators. Whether you're a painter, sculptor, digital artist, or photographer,
+                        this is your space to tell your story.Features: Create and publish blog posts Add images to showcase your work Organize posts by category• 
+                        Engage with comments Search and filter content Mobile-responsive designStart sharing your artistic journey today!'
+                        Creative Canvas is a platform where artists can share stories, showcase artwork, 
+                        and inspire others. We believe every piece of art has a voice and deserves a stage.
+                    </p>
+                    <div class="about-stats">
+                        <div><strong id="totalPosts">0</strong><br>Posts</div>
+                        <div><strong id="totalArtists">0</strong><br>Artists</div>
+                        <div><strong id="totalComments">0</strong><br>Comments</div>
+                    </div>
+                </div>
+            </section>
+            <!-- Create Post Form -->
+            <section class="create-post-section hidden" id="createPostSection">
+                <div class="form-container">
+                    <h3>Create New Blog Post</h3>
+                    <form id="createPostForm" novalidate>
+                        <div class="form-group">
+                            <label for="postTitle">Post Title*</label>
+                            <input type="text" id="postTitle" name="title" required placeholder="Enter your post title..." maxlength="100">
+                            <div class="error-message">Please enter a title (max 100 characters)</div>
+                            <div class="character-count"><span id="titleCount">0</span>/100</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="postAuthor">Author*</label>
+                            <input type="text" id="postAuthor" name="author" required placeholder="Your name..." maxlength="50">
+                            <div class="error-message">Please enter your name (max 50 characters)</div>
+                            <div class="character-count"><span id="authorCount">0</span>/50</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="postCategory">Category*</label>
+                            <select id="postCategory" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="technology">Technology</option>
+                                <option value="digital-art">Digital Art</option>
+                                <option value="photography">Photography</option>
+                                <option value="mixed-media">Mixed Media</option>
+                                <option value="tutorials">Tutorials</option>
+                                <option value="inspiration">Inspiration</option>
+                                <option value="events">Events</option>
+                                <option value="reviews">Reviews</option>
+                                <option value="interviews">Interviews</option>
+                                <option value="personal-journeys">Personal Journeys</option>
+                                <option value="industry-news">Industry News</option>
+                                <option value="art-history">Art History</option>
+                                <option value="other">Other</option>
+                                
+                            </select>
+                            <div class="error-message">Please select a category</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="postImage">Featured Image URL</label>
+                            <input type="url" id="postImage" name="image" placeholder="https://example.com/image.jpg">
+                            <div class="error-message">Please enter a valid URL</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="postContent">Content*</label>
+                            <textarea id="postContent" name="content" required rows="8" placeholder="Share your thoughts, process, or story..." maxlength="5000"></textarea>
+                            <div class="error-message">Please enter content (minimum 50 characters, max 5000)</div>
+                            <div class="character-count"><span id="contentCount">0</span>/5000</div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="cancelPostBtn">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="publishBtn">Publish Post</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Blog Posts Section -->
+            <section class="blog-posts-section" id="blogPostsSection">
+                <div class="section-header">
+                    <div class="section-title-container">
+                        <h3>Latest Posts</h3>
+                    </div>
+                    <div class="section-controls">
+                        <div class="search-container">
+                            <div class="search-icon">🔍</div>
+                            <input type="text" class="search-input" id="searchInput" placeholder="Search posts...">
+                            <div class="search-results" id="searchResults"></div>
+                        </div>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-category="all">All</button>
+                            <button class="filter-btn" data-category="painting">Painting</button>
+                            <button class="filter-btn" data-category="sculpture">Sculpture</button>
+                            <button class="filter-btn" data-category="digital-art">Digital Art</button>
+                            <button class="filter-btn" data-category="photography">Photography</button>
+                            <button class="filter-btn" data-category="mixed-media">Mixed Media</button>
+                        </div>
+                        <div class="sort-options">
+                            <label for="sortSelect">Sort by:</label>
+                            <select id="sortSelect" class="sort-select">
+                                <option value="date-desc">Newest First</option>
+                                <option value="date-asc">Oldest First</option>
+                                <option value="title-asc">Title A-Z</option>
+                                <option value="title-desc">Title Z-A</option>
+                                <option value="author-asc">Author A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="posts-grid" id="postsGrid">
+                    <!-- Blog posts will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Single Post View -->
+            <section class="single-post-section hidden" id="singlePostSection">
+                <button class="btn btn-back" id="backToPostsBtn">← Back to Posts</button>
+                <article class="single-post" id="singlePostContent">
+                    <!-- Single post content will be inserted here -->
+                </article>
+                
+                <!-- Comments Section -->
+                <div class="comments-section">
+                    <h4>Comments (<span id="commentCount">0</span>)</h4>
+                    <form class="comment-form" id="commentForm" novalidate>
+                        <div class="form-group">
+                            <input type="text" id="commentName" name="name" placeholder="Your name" required maxlength="50">
+                            <div class="error-message">Please enter your name (max 50 characters)</div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="commentText" name="text" placeholder="Share your thoughts..." rows="3" required maxlength="500"></textarea>
+                            <div class="error-message">Please enter a comment (max 500 characters)</div>
+                            <div class="character-count"><span id="commentTextCount">0</span>/500</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                    <div class="comments-list" id="commentsList">
+                        <!-- Comments will be inserted here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Creative Canvas</h4>
+                    <p>Empowering artists to share their stories and connect with the world.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#posts">Posts</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Pinterest</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Creative Canvas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner hidden" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
