@@ -53,10 +53,6 @@ Just double-click `index.html` to preview locally.
 - **CSS3** – styling with gradients, animations, responsive design  
 - **JavaScript (ES6)** – interactivity, form validation, search & filtering  
 
----
-
-## 📸 Screenshots
-*(You can add blog screenshots here)*
 
 ---
 
