@@ -3,7 +3,7 @@
 **Creative Canvas** is a modern, responsive blogging platform for artists, photographers, and creators.  
 It allows you to create posts, filter by category, search content, and interact with comments — all in a clean, minimal UI.
 
-🌐 **Live Demo**: [GitHub Pages Link](https://your-username.github.io/creative-canvas-blog/)
+🌐 **Live Demo**: [GitHub Pages Link](https://nikhil07092006.github.io/Blog-page/)
 
 ---
 
@@ -31,7 +31,7 @@ creative-canvas-blog/
 ## ⚡ Getting Started
 ### 1. Clone this repository
 ```bash
-git clone https://github.com/your-username/creative-canvas-blog.git
+git clone https://github.com/Nikhil07092006/creative-canvas-blog.git
 cd creative-canvas-blog
 ```
 
@@ -43,7 +43,7 @@ Just double-click `index.html` to preview locally.
 2. Set source to **Deploy from branch → main → /(root)**.
 3. Visit:  
    ```
-   https://your-username.github.io/creative-canvas-blog/
+   https://Nikhil07092006.github.io/creative-canvas-blog/
    ```
 
 ---
